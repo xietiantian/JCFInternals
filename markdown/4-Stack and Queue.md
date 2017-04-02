@@ -112,7 +112,9 @@ public void addLast(E e) {
 
 ```Java
 public E pollFirst() {
-    E result = elements[head];
+    int h = head;
+    @SuppressWarnings("unchecked")
+    E result = (E) elements[h];
     if (result == null)//null值意味着deque为空
         return null;
     elements[h] = null;//let GC work
