@@ -18,7 +18,7 @@ Java中*PriorityQueue*实现了*Queue*接口，不允许放入`null`元素；其
 
 通过上述三个公式，可以轻易计算出某个节点的父节点以及子节点的下标。这也就是为什么可以直接用数组来存储堆的原因。
 
-*PriorityQueue*的`peek()`和`element`操作是常数时间，`add()`, `offer()`, 无参数的`remove()`以及`poll()`方法的时间复杂度都是*log(N)*。
+*PriorityQueue*的`peek()`和`element()`操作是常数时间，`add()`, `offer()`, 无参数的`remove()`以及`poll()`方法的时间复杂度都是*log(N)*。
 
 # 方法剖析
 
@@ -47,7 +47,10 @@ public boolean offer(E e) {
     return true;
 }
 ```
-上述代码中，扩容函数`grow()`类似于`ArrayList`里的`grow()`函数，就是再申请一个更大的数组，并将原数组的元素复制过去，这里不再赘述。需要注意的是`siftUp(int k, E x)`方法，该方法用于插入元素`x`并维持堆的特性。
+上述代码中，扩容函数`grow()`类似于`ArrayList`里的`grow()`函数，就是再申请一个更大的数组，并将原数组的元素复制过去。
+`grow()`大约是这样的规则：Double size (2*oldCapacity+2) if small(oldCapacity<64); else grow by 50% (oldCapacity+(oldCapacity >> 1))
+
+需要注意的是`siftUp(int k, E x)`方法，该方法用于插入元素`x`并维持堆的特性。
 
 ```Java
 //siftUp()
