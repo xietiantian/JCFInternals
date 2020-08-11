@@ -70,7 +70,7 @@ private void grow(int minCapacity) {
 public E remove(int index) {
     rangeCheck(index);
     modCount++;
-    E oldValue = elementData(index);
+    E oldValue = elementData[index];
     int numMoved = size - index - 1;
     if (numMoved > 0)
         System.arraycopy(elementData, index+1, elementData, index, numMoved);
