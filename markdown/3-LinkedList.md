@@ -56,7 +56,7 @@ public void add(int index, E element) {
 	checkPositionIndex(index);//index >= 0 && index <= size;
 	if (index == size)//插入位置是末尾，包括列表为空的情况
         add(element);
-    else{
+    } else {
     	Node<E> succ = node(index);//1.先根据index找到要插入的位置
         //2.修改引用，完成插入操作。
         final Node<E> pred = succ.prev;
