@@ -22,7 +22,7 @@
 
 WeakHashMap的存储结构类似于HashMap，读者可自行[参考前文](https://github.com/CarpenterLee/JCFInternals/blob/master/markdown/6-HashSet%20and%20HashMap.md)，这里不再赘述。
 
-关于强弱引用的管理方式，博主将会另开专题单独讲解。
+Entry 是 WeakReference 的子类，key 是弱引用指向的对象。构造 Entry 时会传入 map 的 ReferenceQueue（详见 https://www.iflym.com/index.php/java-programe/201407140001.html ），在 key 被回收时，移除整个 entry
 
 
 # Weak HashSet?
